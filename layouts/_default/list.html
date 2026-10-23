@@ -1,0 +1,204 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+{{ $pages := .Data.Pages.ByDate.Reverse }}
+{{ if eq .Section "projects" }}
+  {{ $pages = .Data.Pages.ByWeight }}
+{{ end }}
+
+<div class="universal-wrapper section-page section-{{ .Section }}">
+  {{ with .Content }}
+  <div class="article-style">{{ . }}</div>
+  {{ end }}
+
+  {{ if gt (len $pages) 0 }}
+    {{ if eq .Section "posts" }}
+    {{ $scratch := newScratch }}
+    {{ $scratch.Set "categories" (slice) }}
+    {{ range $pages }}
+      {{ range .Params.categories }}
+        {{ $existing := $scratch.Get "categories" }}
+        {{ if not (in $existing .) }}
+          {{ $scratch.Set "categories" ($existing | append .) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    <div class="section-toolbar section-toolbar-posts">
+      <div class="section-filter-group" id="section-filters">
+        <button class="section-filter is-active" type="button" data-filter="all">All</button>
+        {{ range sort ($scratch.Get "categories") }}
+        <button class="section-filter" type="button" data-filter="{{ . | urlize }}">{{ . }}</button>
+        {{ end }}
+      </div>
+      <div class="section-search-wrap">
+        <input type="text" id="section-search" class="form-control" placeholder="Search insights...">
+      </div>
+    </div>
+    <div id="section-list" class="section-card-grid section-card-grid-posts">
+      {{ range $pages }}
+      {{ $item := . }}
+      {{ $categories := apply .Params.categories "urlize" "." }}
+      <article class="section-card post-card section-item" data-categories="{{ delimit $categories " " }}">
+        <div class="section-card-topline">
+          <div class="section-card-badges">
+            {{ range .Params.categories }}
+            <span class="section-badge">{{ . }}</span>
+            {{ end }}
+          </div>
+          <span class="section-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        <div class="section-subheading article-title mb-0 mt-0">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+        {{ with .Params.summary }}
+        <a href="{{ $item.RelPermalink }}" class="summary-link section-summary-link">
+          <div class="article-style section-card-summary">
+            {{ . | markdownify }}
+          </div>
+        </a>
+        {{ end }}
+        <div class="stream-meta article-metadata section-card-meta">
+          {{ partial "page_metadata" (dict "page" . "is_list" 1) }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else if eq .Section "projects" }}
+    <div class="projects-page-intro">
+      <div class="projects-page-copy">
+        <p class="projects-page-kicker">Projects</p>
+        <h1>Research systems, demos, and artifacts from Branches Lab</h1>
+        <p>Browse reconstruction, generative modeling, and agent projects in a dedicated space instead of a generic article list. Each project can carry its own preview image, video, demo link, and source repository.</p>
+      </div>
+      <div class="projects-page-actions">
+        <a class="showcase-more" href="/#intro">Back to showcase</a>
+      </div>
+    </div>
+    <div id="section-list" class="section-card-grid section-card-grid-projects">
+      {{ range $pages }}
+      {{ $project := . }}
+      {{ $image := "" }}
+      {{ with $project.Params.showcase_image }}
+        {{ if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+          {{ $image = . }}
+        {{ else }}
+          {{ with $project.Resources.GetMatch . }}
+            {{ $image = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if eq $image "" }}
+        {{ with ($project.Resources.ByType "image").GetMatch "*featured*" }}
+          {{ $image = .RelPermalink }}
+        {{ end }}
+      {{ end }}
+      <article class="section-card project-card section-item">
+        <a class="project-card-media" href="{{ $project.RelPermalink }}">
+          {{ if $image }}
+          <img src="{{ $image }}" alt="{{ $project.Title }} preview" loading="lazy">
+          {{ else }}
+          <div class="project-card-media-fallback">
+            <span>{{ $project.Title }}</span>
+          </div>
+          {{ end }}
+        </a>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <div class="section-card-badges">
+              {{ range first 2 $project.Params.tags }}
+              <span class="section-badge">{{ . }}</span>
+              {{ end }}
+            </div>
+            <span class="section-card-date">{{ $project.Date.Format "2006" }}</span>
+          </div>
+          <div class="section-subheading article-title mb-0 mt-0">
+            <a href="{{ $project.RelPermalink }}">{{ $project.Title }}</a>
+          </div>
+          {{ with $project.Params.summary }}
+          <a href="{{ $project.RelPermalink }}" class="summary-link section-summary-link">
+            <div class="article-style section-card-summary">
+              {{ . | markdownify }}
+            </div>
+          </a>
+          {{ end }}
+          {{ with $project.Params.showcase_points }}
+          <div class="project-card-highlights">
+            {{ range first 2 . }}
+            <span>{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <div class="project-card-actions">
+            <a class="project-card-link" href="{{ $project.RelPermalink }}">Open project</a>
+            {{ with $project.Params.demo_url }}<a class="project-card-link" href="{{ . }}" target="_blank" rel="noopener">Live demo</a>{{ end }}
+            {{ with $project.Params.source_url }}<a class="project-card-link" href="{{ . }}" target="_blank" rel="noopener">Source</a>{{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div id="section-list">
+      {{ range $pages }}
+      {{ $item := . }}
+      <div class="media stream-item section-item">
+        <div class="media-body">
+          <div class="section-subheading article-title mb-0 mt-0">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+          {{ with .Params.summary }}
+          <a href="{{ $item.RelPermalink }}" class="summary-link">
+            <div class="article-style">
+              {{ . | markdownify }}
+            </div>
+          </a>
+          {{ end }}
+          <div class="stream-meta article-metadata">
+            {{ partial "page_metadata" (dict "page" . "is_list" 1) }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{ if and (gt (len $pages) 0) (eq .Section "posts") }}
+<script>
+(() => {
+  const searchInput = document.getElementById('section-search');
+  const filterButtons = Array.from(document.querySelectorAll('.section-filter'));
+  const items = Array.from(document.querySelectorAll('.section-item'));
+  let activeFilter = 'all';
+  let activeQuery = '';
+
+  const applyFilters = () => {
+    items.forEach((item) => {
+      const title = item.querySelector('.article-title')?.textContent.toLowerCase() || '';
+      const summary = item.querySelector('.article-style')?.textContent.toLowerCase() || '';
+      const categories = item.dataset.categories || '';
+      const filterMatch = activeFilter === 'all' || categories.split(' ').includes(activeFilter);
+      const queryMatch = !activeQuery || title.includes(activeQuery) || summary.includes(activeQuery);
+      item.style.display = filterMatch && queryMatch ? '' : 'none';
+    });
+  };
+
+  searchInput?.addEventListener('input', (event) => {
+    activeQuery = event.target.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter || 'all';
+      filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+      applyFilters();
+    });
+  });
+})();
+</script>
+{{ end }}
+
+{{- end -}}

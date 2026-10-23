@@ -1,0 +1,30 @@
+# Configuration of Hugo
+title: Branches Lab
+baseURL: 'https://3DBranches.github.io/'
+
+defaultContentLanguage: en
+hasCJKLanguage: false
+defaultContentLanguageInSubdir: false
+
+module:
+  proxy: direct
+  imports:
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5
+
+taxonomies:
+  author: authors
+  tag: tags
+  category: categories
+  publication_type: publication_types
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+security:
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^WC_'

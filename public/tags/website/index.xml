@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website | Branches Lab</title>
+    <link>http://localhost:1313/tags/website/</link>
+      <atom:link href="http://localhost:1313/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <description>Website</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo.svg</url>
+      <title>Website</title>
+      <link>http://localhost:1313/tags/website/</link>
+    </image>
+    
+    <item>
+      <title>Building a Research Showcase That Feels Like a Product</title>
+      <link>http://localhost:1313/posts/building-the-showcase/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/building-the-showcase/</guid>
+      <description>&lt;p&gt;When a research lab homepage is treated as a product surface instead of a document dump, visitors understand the work faster. Structure, motion, and preview quality matter as much as text.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

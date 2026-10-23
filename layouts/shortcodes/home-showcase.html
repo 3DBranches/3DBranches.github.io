@@ -1,0 +1,160 @@
+{{ $projects := where site.RegularPages "Section" "projects" }}
+{{ $projects = where $projects "Params.showcase" true }}
+{{ $projects = sort $projects "Weight" "asc" }}
+
+{{ if gt (len $projects) 0 }}
+<div class="showcase-header">
+  <h2>From research ideas to visible systems</h2>
+  <p>We turn 3D reconstruction, AIGC, and agent research into tangible demos. Select a project on the left to open a real preview driven by the project content itself.</p>
+</div>
+
+<div class="showcase-split" id="lab-showcase">
+  <div class="showcase-list" role="tablist" aria-label="Branches showcase topics">
+    {{ range $index, $project := $projects }}
+      {{ $panelID := printf "showcase-%d" $index }}
+      <button
+        class="showcase-item {{ if eq $index 0 }}is-active{{ end }}"
+        id="{{ $panelID }}-tab"
+        type="button"
+        data-target="{{ $panelID }}"
+        role="tab"
+        aria-controls="{{ $panelID }}"
+        aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
+        <span class="showcase-dot" aria-hidden="true"></span>
+        <span class="showcase-text">
+          <strong>{{ $project.Title }}</strong>
+          <small>{{ $project.Params.summary }}</small>
+        </span>
+      </button>
+    {{ end }}
+
+    <a class="showcase-more" href="/projects/">View all projects</a>
+  </div>
+
+  <div class="showcase-media">
+    {{ range $index, $project := $projects }}
+      {{ $panelID := printf "showcase-%d" $index }}
+      {{ $label := default "Project Preview" $project.Params.showcase_label }}
+      {{ $format := default "Project" $project.Params.showcase_format }}
+      {{ $chip := default "Research Demo" $project.Params.showcase_chip }}
+      {{ $image := "" }}
+      {{ with $project.Params.showcase_image }}
+        {{ if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+          {{ $image = . }}
+        {{ else }}
+          {{ with $project.Resources.GetMatch . }}
+            {{ $image = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $video := "" }}
+      {{ with $project.Params.showcase_video }}
+        {{ if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+          {{ $video = . }}
+        {{ else }}
+          {{ with $project.Resources.GetMatch . }}
+            {{ $video = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      <section
+        class="showcase-panel {{ if eq $index 0 }}is-active{{ end }}"
+        id="{{ $panelID }}"
+        role="tabpanel"
+        aria-labelledby="{{ $panelID }}-tab">
+        <div class="showcase-frame">
+          <div class="showcase-screen">
+            <div class="showcase-playerbar">
+              <span class="player-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="player-label">{{ $label }}</span>
+              <span class="player-tag">{{ $format }}</span>
+            </div>
+            <div class="showcase-chip">{{ $chip }}</div>
+            <div class="showcase-stage">
+              <div class="showcase-mainframe">
+                {{ if $video }}
+                  <video class="showcase-video" controls playsinline preload="metadata" {{ with $image }}poster="{{ . }}"{{ end }}>
+                    <source src="{{ $video }}">
+                  </video>
+                {{ else if $image }}
+                  <img class="showcase-image" src="{{ $image }}" alt="{{ $project.Title }} preview" loading="lazy">
+                {{ else }}
+                  <div class="showcase-empty">
+                    <p>Add `showcase_image` or `showcase_video` in this project front matter to render a preview here.</p>
+                  </div>
+                {{ end }}
+              </div>
+              <div class="showcase-sidecards">
+                <a class="showcase-sidecard showcase-sidecard-link" href="{{ $project.RelPermalink }}">
+                  <strong>Project Page</strong>
+                  <span>Open the full write-up, links, and assets.</span>
+                </a>
+                {{ with $project.Params.demo_url }}
+                  <a class="showcase-sidecard showcase-sidecard-link" href="{{ . }}" target="_blank" rel="noopener">
+                    <strong>Live Demo</strong>
+                    <span>Open the external preview or interactive demo.</span>
+                  </a>
+                {{ end }}
+                {{ with $project.Params.source_url }}
+                  <a class="showcase-sidecard showcase-sidecard-link" href="{{ . }}" target="_blank" rel="noopener">
+                    <strong>Source</strong>
+                    <span>Inspect code, checkpoints, or reproducibility material.</span>
+                  </a>
+                {{ end }}
+                {{ range first 3 ($project.Params.showcase_points | default (slice)) }}
+                  <div class="showcase-sidecard">
+                    <strong>Highlight</strong>
+                    <span>{{ . }}</span>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+            <div class="showcase-toolbar">
+              <div class="showcase-toolbar-text">
+                <strong>{{ $project.Title }}</strong>
+                <span>{{ $project.Params.summary }}</span>
+              </div>
+              <div class="showcase-links">
+                <a class="showcase-link" href="{{ $project.RelPermalink }}">Read project</a>
+                {{ with $project.Params.demo_url }}<a class="showcase-link" href="{{ . }}" target="_blank" rel="noopener">Open demo</a>{{ end }}
+                {{ with $project.Params.source_url }}<a class="showcase-link" href="{{ . }}" target="_blank" rel="noopener">View source</a>{{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-caption">
+          <h3>{{ $project.Title }}</h3>
+          <p>{{ with $project.Params.showcase_summary }}{{ . }}{{ else }}{{ $project.Params.summary }}{{ end }}</p>
+        </div>
+      </section>
+    {{ end }}
+  </div>
+</div>
+
+<script>
+  (() => {
+    const root = document.getElementById('lab-showcase');
+    if (!root) return;
+
+    const items = Array.from(root.querySelectorAll('.showcase-item'));
+    const panels = Array.from(root.querySelectorAll('.showcase-panel'));
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const target = item.getAttribute('data-target');
+        items.forEach((button) => {
+          const active = button === item;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach((panel) => panel.classList.toggle('is-active', panel.id === target));
+      });
+    });
+  })();
+</script>
+{{ else }}
+<div class="showcase-header">
+  <h2>From research ideas to visible systems</h2>
+  <p>Add project pages and enable the homepage showcase fields to populate this section automatically.</p>
+</div>
+{{ end }}

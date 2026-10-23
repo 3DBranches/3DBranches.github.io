@@ -1,0 +1,30 @@
+# HugoBlox Parameters
+hugoblox:
+  schema: "2.0"
+  identity:
+    name: Branches Lab
+    type: organization
+    logo:
+      filename: logo.svg
+    tagline: Exploring the frontiers of 3D Reconstruction, AIGC, and Agents.
+    description: "Branches Lab is a research group focused on the intersection of computer vision and generative AI."
+  theme:
+    mode: light
+    pack: default
+  typography:
+    font: sans
+    size: md
+  header:
+    enable: true
+    style: navbar
+    sticky: true
+    align: right
+    search: false
+    theme_toggle: false
+  footer:
+    enable: false
+    style: minimal
+    copyright:
+      notice: '© {year} Branches Lab'
+  search:
+    enable: true

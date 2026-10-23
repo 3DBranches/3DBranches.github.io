@@ -1,0 +1,108 @@
+{{- define "main" -}}
+{{ $author := . }}
+{{ $pages := .Pages.ByDate.Reverse }}
+{{ $avatar := "" }}
+{{ with .Resources.GetMatch "avatar*" }}
+  {{ $avatar = .RelPermalink }}
+{{ end }}
+{{ $email := .Params.email }}
+{{ if eq $email "" }}
+  {{ range .Params.social }}
+    {{ if hasPrefix .link "mailto:" }}
+      {{ $email = strings.TrimPrefix "mailto:" .link }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "categories" (slice) }}
+{{ range $pages }}
+  {{ range .Params.categories }}
+    {{ $existing := $scratch.Get "categories" }}
+    {{ if not (in $existing .) }}
+      {{ $scratch.Set "categories" ($existing | append .) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $categoryCount := len ($scratch.Get "categories") }}
+
+<div class="universal-wrapper author-page">
+  <div class="author-layout">
+    <aside class="author-sidebar">
+      <div class="author-profile-card">
+        {{ if $avatar }}
+        <img class="author-avatar" src="{{ $avatar }}" alt="{{ .Title }} avatar">
+        {{ end }}
+        <p class="author-kicker">Member</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.role }}<p class="author-role">{{ . }}</p>{{ end }}
+        {{ with .Content }}<div class="author-bio article-style">{{ . }}</div>{{ end }}
+      </div>
+
+      <div class="author-meta-card">
+        <h3>Profile</h3>
+        <ul class="author-meta-list">
+          {{ with .Params.role }}<li><span>Role</span><strong>{{ . }}</strong></li>{{ end }}
+          {{ with $email }}<li><span>Email</span><strong><a href="mailto:{{ . }}">{{ . }}</a></strong></li>{{ end }}
+          {{ with .Params.focus }}
+          <li>
+            <span>Focus</span>
+            <strong>{{ delimit . " / " }}</strong>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="author-stats-grid">
+        <div class="author-stat-card">
+          <span>Updates</span>
+          <strong>{{ len $pages }}</strong>
+        </div>
+        <div class="author-stat-card">
+          <span>Topics</span>
+          <strong>{{ $categoryCount }}</strong>
+        </div>
+        <div class="author-stat-card">
+          <span>Latest</span>
+          <strong>{{ if gt (len $pages) 0 }}{{ (index $pages 0).Date.Format "2006" }}{{ else }}-{{ end }}</strong>
+        </div>
+      </div>
+    </aside>
+
+    <section class="author-main">
+      <div class="author-main-header">
+        <p class="author-kicker">Timeline</p>
+        <h2>Updates and writing</h2>
+        <p>Track this member's posts, notes, and research updates in reverse chronological order.</p>
+      </div>
+
+      <div class="author-timeline-card">
+        {{ if gt (len $pages) 0 }}
+        <div class="author-timeline">
+          {{ range $pages }}
+          <article class="author-timeline-item">
+            <div class="author-timeline-marker" aria-hidden="true"></div>
+            <div class="author-timeline-content">
+              <div class="author-timeline-topline">
+                <span class="author-timeline-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                <div class="author-timeline-tags">
+                  {{ range .Params.categories }}
+                  <span class="author-timeline-tag">{{ . }}</span>
+                  {{ end }}
+                </div>
+              </div>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+            </div>
+          </article>
+          {{ end }}
+        </div>
+        {{ else }}
+        <div class="author-empty-state">
+          <p>No updates are attached to this member yet.</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+  </div>
+</div>
+{{- end -}}

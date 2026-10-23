@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Branches Lab</title>
+    <link>http://localhost:1313/projects/</link>
+      <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo.svg</url>
+      <title>Projects</title>
+      <link>http://localhost:1313/projects/</link>
+    </image>
+    
+    <item>
+      <title>Neural Surface Reconstruction</title>
+      <link>http://localhost:1313/projects/project-1/</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-1/</guid>
+      <description>&lt;p&gt;Neural Surface Reconstruction focuses on turning a sparse set of images into detailed, view-consistent geometry and appearance. It is a good home for mesh snapshots, rendered fly-throughs, depth visualizations, and reconstruction comparisons.&lt;/p&gt;
+&lt;h2 id=&#34;suggested-assets&#34;&gt;Suggested assets&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;preview.svg&lt;/code&gt; or &lt;code&gt;featured.jpg&lt;/code&gt; for the homepage showcase&lt;/li&gt;
+&lt;li&gt;qualitative figures comparing inputs, depth, normals, and renderings&lt;/li&gt;
+&lt;li&gt;optional demo video linked via &lt;code&gt;showcase_video&lt;/code&gt; or &lt;code&gt;demo_url&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/neural-surface&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Generative World Building</title>
+      <link>http://localhost:1313/projects/project-2/</link>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-2/</guid>
+      <description>&lt;p&gt;Generative World Building is the placeholder project space for text-to-3D or text-to-scene research. This page is intended for generated assets, scene compositions, ablation figures, and short teaser videos.&lt;/p&gt;
+&lt;h2 id=&#34;what-to-put-here-later&#34;&gt;What to put here later&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;prompt and output comparisons&lt;/li&gt;
+&lt;li&gt;multi-view render sheets&lt;/li&gt;
+&lt;li&gt;editing or regeneration workflows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/generative-world-building&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View source repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Agentic Scene Reasoning</title>
+      <link>http://localhost:1313/projects/project-3/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-3/</guid>
+      <description>&lt;p&gt;Agentic Scene Reasoning is the home for embodied or multimodal agent projects. Use it for rollout captures, evaluation summaries, and dashboards that explain how the agent perceives, reasons, and acts.&lt;/p&gt;
+&lt;h2 id=&#34;example-assets&#34;&gt;Example assets&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;UI screenshots from agent rollouts&lt;/li&gt;
+&lt;li&gt;benchmark tables and success traces&lt;/li&gt;
+&lt;li&gt;short videos of planning and execution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/agentic-scene-reasoning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View source repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Controllable Scene Editing</title>
+      <link>http://localhost:1313/projects/project-4/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-4/</guid>
+      <description>&lt;p&gt;Controllable Scene Editing is the place for user-facing systems that modify scenes, assets, and layouts. It is a strong fit for interactive editors, generation-plus-editing pipelines, or design tools with iterative loops.&lt;/p&gt;
+&lt;h2 id=&#34;example-materials&#34;&gt;Example materials&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;before and after image pairs&lt;/li&gt;
+&lt;li&gt;editing timeline or workflow screenshots&lt;/li&gt;
+&lt;li&gt;product-style previews of tools and interfaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/controllable-scene-editing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View source repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

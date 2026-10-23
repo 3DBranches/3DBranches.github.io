@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIGC | Branches Lab</title>
+    <link>http://localhost:1313/tags/aigc/</link>
+      <atom:link href="http://localhost:1313/tags/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <description>AIGC</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo.svg</url>
+      <title>AIGC</title>
+      <link>http://localhost:1313/tags/aigc/</link>
+    </image>
+    
+    <item>
+      <title>Generative World Building</title>
+      <link>http://localhost:1313/projects/project-2/</link>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-2/</guid>
+      <description>&lt;p&gt;Generative World Building is the placeholder project space for text-to-3D or text-to-scene research. This page is intended for generated assets, scene compositions, ablation figures, and short teaser videos.&lt;/p&gt;
+&lt;h2 id=&#34;what-to-put-here-later&#34;&gt;What to put here later&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;prompt and output comparisons&lt;/li&gt;
+&lt;li&gt;multi-view render sheets&lt;/li&gt;
+&lt;li&gt;editing or regeneration workflows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/generative-world-building&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View source repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

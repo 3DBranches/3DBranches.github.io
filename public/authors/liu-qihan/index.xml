@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Liu Qihan | Branches Lab</title>
+    <link>http://localhost:1313/authors/liu-qihan/</link>
+      <atom:link href="http://localhost:1313/authors/liu-qihan/index.xml" rel="self" type="application/rss+xml" />
+    <description>Liu Qihan</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/authors/liu-qihan/avatar_hu_77dc321ca3fda364.jpg</url>
+      <title>Liu Qihan</title>
+      <link>http://localhost:1313/authors/liu-qihan/</link>
+    </image>
+    
+    <item>
+      <title>Branches Lab Launches the First Public Homepage Iteration</title>
+      <link>http://localhost:1313/posts/lab-news-october/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lab-news-october/</guid>
+      <description>&lt;p&gt;Branches Lab has launched the first public iteration of its website, bringing together project demos, updates, team information, and research-facing writing in a single destination.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Future of 3D Reconstruction</title>
+      <link>http://localhost:1313/posts/first-insight/</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/first-insight/</guid>
+      <description>&lt;p&gt;In this post, we discuss the latest trends in 3D reconstruction, focusing on how AIGC is transforming the field.&lt;/p&gt;
+&lt;p&gt;Stay tuned for more updates!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

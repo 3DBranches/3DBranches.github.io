@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Neural Surface Reconstruction Preview</title>
+  <desc id="desc">A stylized sparse-view to 3D reconstruction preview.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#122033" />
+      <stop offset="55%" stop-color="#2a4865" />
+      <stop offset="100%" stop-color="#96aebf" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf3f8" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#b9cbda" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#bg)" />
+  <g opacity="0.18" stroke="#cfe3f4">
+    <path d="M80 160h1040" />
+    <path d="M80 320h1040" />
+    <path d="M80 480h1040" />
+    <path d="M200 80v560" />
+    <path d="M400 80v560" />
+    <path d="M600 80v560" />
+    <path d="M800 80v560" />
+    <path d="M1000 80v560" />
+  </g>
+  <rect x="88" y="96" width="252" height="154" rx="24" fill="#dfeaf4" fill-opacity="0.16" stroke="#dce8f1" stroke-opacity="0.32" />
+  <rect x="370" y="96" width="252" height="154" rx="24" fill="#dfeaf4" fill-opacity="0.12" stroke="#dce8f1" stroke-opacity="0.22" />
+  <rect x="652" y="96" width="252" height="154" rx="24" fill="#dfeaf4" fill-opacity="0.12" stroke="#dce8f1" stroke-opacity="0.22" />
+  <rect x="936" y="96" width="176" height="528" rx="28" fill="#0f1723" fill-opacity="0.52" stroke="#f1f6fb" stroke-opacity="0.18" />
+  <path d="M202 432c74-128 233-172 338-98 105 74 214 36 290-96" fill="none" stroke="#f7efe2" stroke-width="20" stroke-linecap="round" />
+  <path d="M196 426c64 74 164 116 274 114 129-3 244-63 341-182" fill="none" stroke="#7fd2ef" stroke-width="10" stroke-linecap="round" opacity="0.85" />
+  <circle cx="198" cy="426" r="24" fill="#f7efe2" />
+  <circle cx="474" cy="516" r="18" fill="#7fd2ef" />
+  <circle cx="830" cy="336" r="18" fill="#f7efe2" />
+  <rect x="120" y="494" width="746" height="96" rx="26" fill="#0e1620" fill-opacity="0.42" stroke="#d7e5ef" stroke-opacity="0.18" />
+  <rect x="958" y="132" width="132" height="108" rx="22" fill="url(#panel)" />
+  <rect x="958" y="270" width="132" height="108" rx="22" fill="url(#panel)" opacity="0.88" />
+  <rect x="958" y="408" width="132" height="108" rx="22" fill="url(#panel)" opacity="0.76" />
+  <text x="124" y="550" fill="#f8fbfd" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="600">Sparse Views to Surface Reconstruction</text>
+  <text x="126" y="602" fill="#d7e4ee" font-family="Inter, Arial, sans-serif" font-size="24">Geometry, appearance, and rendering previews in one slot</text>
+</svg>

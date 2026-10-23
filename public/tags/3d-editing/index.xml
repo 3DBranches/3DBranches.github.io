@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3D Editing | Branches Lab</title>
+    <link>http://localhost:1313/tags/3d-editing/</link>
+      <atom:link href="http://localhost:1313/tags/3d-editing/index.xml" rel="self" type="application/rss+xml" />
+    <description>3D Editing</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo.svg</url>
+      <title>3D Editing</title>
+      <link>http://localhost:1313/tags/3d-editing/</link>
+    </image>
+    
+    <item>
+      <title>Controllable Scene Editing</title>
+      <link>http://localhost:1313/projects/project-4/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-4/</guid>
+      <description>&lt;p&gt;Controllable Scene Editing is the place for user-facing systems that modify scenes, assets, and layouts. It is a strong fit for interactive editors, generation-plus-editing pipelines, or design tools with iterative loops.&lt;/p&gt;
+&lt;h2 id=&#34;example-materials&#34;&gt;Example materials&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;before and after image pairs&lt;/li&gt;
+&lt;li&gt;editing timeline or workflow screenshots&lt;/li&gt;
+&lt;li&gt;product-style previews of tools and interfaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/controllable-scene-editing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View source repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

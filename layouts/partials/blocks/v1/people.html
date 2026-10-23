@@ -1,0 +1,54 @@
+{{/* Custom People Block for Branches Lab */}}
+{{ $block := .wcBlock }}
+{{ $show_social := $block.Params.design.show_social | default true }}
+{{ $show_role := $block.Params.design.show_role | default true }}
+
+<div class="row justify-content-center people-widget people-widget-custom">
+  {{ with $block.Title }}
+  <div class="col-md-12 section-heading">
+    <h1>{{ . | markdownify | emojify }}</h1>
+    {{ if $block.Params.subtitle }}<p>{{ $block.Params.subtitle | markdownify | emojify }}</p>{{ end }}
+  </div>
+  {{ end }}
+
+  {{ range $block.Params.content.user_groups }}
+  {{ $query := where (where site.Pages "Section" "authors") ".Params.user_groups" "intersect" (slice .) }}
+  {{ range $query }}
+    {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+    {{ $link := "" }}
+    {{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+      {{ $link = .RelPermalink }}
+    {{ end }}
+    {{ $email := "" }}
+    {{ range .Params.social }}
+      {{ if eq .icon "envelope" }}
+        {{ $email = replace .link "mailto:" "" }}
+      {{ end }}
+    {{ end }}
+    <div class="col-6 col-md-4 col-xl people-person">
+      <div class="people-card">
+        {{ if $avatar }}
+          {{ $avatarImage := $avatar.Fill "220x220 Center" }}
+          {{ with $link }}<a href="{{ . }}" class="people-avatar-link">{{ end }}
+            <img
+              width="220"
+              height="220"
+              loading="lazy"
+              class="avatar avatar-circle"
+              src="{{ $avatarImage.RelPermalink }}"
+              alt="{{ .Title }} avatar">
+          {{ if $link }}</a>{{ end }}
+        {{ end }}
+
+        <div class="portrait-title">
+          <h2>{{ with $link }}<a href="{{ . }}">{{ end }}{{ .Title }}{{ if $link }}</a>{{ end }}</h2>
+          {{ if and $show_role .Params.role }}<h3>{{ .Params.role | markdownify | emojify }}</h3>{{ end }}
+          {{ with $email }}<p class="people-email"><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+          {{ with .Content }}<div class="people-bio">{{ . }}</div>{{ end }}
+          {{ if $show_social }}{{ partial "social_links" . }}{{ end }}
+        </div>
+      </div>
+    </div>
+  {{ end }}
+  {{ end }}
+</div>

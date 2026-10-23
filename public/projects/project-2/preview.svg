@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Generative World Building Preview</title>
+  <desc id="desc">A stylized prompt-to-scene generation preview.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151e31" />
+      <stop offset="50%" stop-color="#5a4d57" />
+      <stop offset="100%" stop-color="#d4b98e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#bg)" />
+  <rect x="74" y="80" width="312" height="562" rx="30" fill="#0f1520" fill-opacity="0.42" stroke="#f6efe6" stroke-opacity="0.18" />
+  <rect x="426" y="80" width="700" height="562" rx="30" fill="#101624" fill-opacity="0.42" stroke="#f6efe6" stroke-opacity="0.16" />
+  <rect x="112" y="132" width="236" height="72" rx="22" fill="#f5e8d4" fill-opacity="0.88" />
+  <text x="146" y="178" fill="#433831" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">prompt</text>
+  <text x="112" y="260" fill="#f7efe4" font-family="Inter, Arial, sans-serif" font-size="26">sunlit indoor atrium</text>
+  <text x="112" y="306" fill="#f7efe4" font-family="Inter, Arial, sans-serif" font-size="26">glass roof, water, plants</text>
+  <text x="112" y="352" fill="#f7efe4" font-family="Inter, Arial, sans-serif" font-size="26">cinematic walk-through</text>
+  <g transform="translate(472 124)">
+    <rect width="608" height="214" rx="24" fill="#f3ddbc" fill-opacity="0.18" />
+    <circle cx="176" cy="110" r="62" fill="#f3ddbc" fill-opacity="0.85" />
+    <path d="M0 200c78-22 134-88 206-84 74 4 124 74 218 74 76 0 108-52 184-86v110H0z" fill="#7e8ea4" />
+    <path d="M0 188c86-16 136-72 206-68 74 4 124 62 218 62 82 0 112-38 184-72v118H0z" fill="#d5b68e" />
+  </g>
+  <g transform="translate(472 372)">
+    <rect width="188" height="210" rx="22" fill="#f9efe0" fill-opacity="0.86" />
+    <rect x="210" width="188" height="210" rx="22" fill="#f4dbc2" fill-opacity="0.82" />
+    <rect x="420" width="188" height="210" rx="22" fill="#f0cda4" fill-opacity="0.76" />
+    <text x="28" y="176" fill="#443830" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">Layout</text>
+    <text x="244" y="176" fill="#443830" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">Material</text>
+    <text x="448" y="176" fill="#443830" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">Variant</text>
+  </g>
+</svg>

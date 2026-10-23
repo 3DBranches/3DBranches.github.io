@@ -1,0 +1,7 @@
+build:
+  hugo_version: '0.159.0'
+deploy:
+  host: 'github-pages'
+template:
+  id: "branches-lab"
+  name: "Branches Lab Website"

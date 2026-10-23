@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3D Reconstruction | Branches Lab</title>
+    <link>http://localhost:1313/tags/3d-reconstruction/</link>
+      <atom:link href="http://localhost:1313/tags/3d-reconstruction/index.xml" rel="self" type="application/rss+xml" />
+    <description>3D Reconstruction</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo.svg</url>
+      <title>3D Reconstruction</title>
+      <link>http://localhost:1313/tags/3d-reconstruction/</link>
+    </image>
+    
+    <item>
+      <title>Neural Surface Reconstruction</title>
+      <link>http://localhost:1313/projects/project-1/</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/project-1/</guid>
+      <description>&lt;p&gt;Neural Surface Reconstruction focuses on turning a sparse set of images into detailed, view-consistent geometry and appearance. It is a good home for mesh snapshots, rendered fly-throughs, depth visualizations, and reconstruction comparisons.&lt;/p&gt;
+&lt;h2 id=&#34;suggested-assets&#34;&gt;Suggested assets&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;preview.svg&lt;/code&gt; or &lt;code&gt;featured.jpg&lt;/code&gt; for the homepage showcase&lt;/li&gt;
+&lt;li&gt;qualitative figures comparing inputs, depth, normals, and renderings&lt;/li&gt;
+&lt;li&gt;optional demo video linked via &lt;code&gt;showcase_video&lt;/code&gt; or &lt;code&gt;demo_url&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/branches-lab/neural-surface&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Future of 3D Reconstruction</title>
+      <link>http://localhost:1313/posts/first-insight/</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/first-insight/</guid>
+      <description>&lt;p&gt;In this post, we discuss the latest trends in 3D reconstruction, focusing on how AIGC is transforming the field.&lt;/p&gt;
+&lt;p&gt;Stay tuned for more updates!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
